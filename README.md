@@ -35,19 +35,19 @@ How to create the adapted dataset ?
 2. Download the original dataset: [click here](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 3. Rename the downloaded file as "samsung.zip" and move it to the "project_final" directory
 4. To create the adapted dataset:
-⋅⋅1. Start R or a R GUI like RStudio
-⋅⋅2. Set "project_final" as your working directory
-⋅⋅3. If you don't have it, install the "data.table" package with the following command: `install.packages("data.table")`
-⋅⋅4. Source the "run_analysis.R" script with the source command
+   * Start R or a R GUI like RStudio
+   * Set "project_final" as your working directory
+   * If you don't have it, install the "data.table" package with the following command: `install.packages("data.table")`
+   * Source the "run_analysis.R" script with the source command
 5. You can know retrieve the adapted dataset in: "\project_final\data\tidydata.txt"
 
 Which steps does the original dataset undergo to become tidy ?
 ==============================================================
 
 What the "run_analysis.R" script does is simple:
-⋅⋅1. It merges the training and the test sets from samsung.zip to create one data set and adds activity labels and subjects identifiers to it.
-⋅⋅2. It extracts only the measurements on the mean and standard deviation for each measurement.
-⋅⋅3. It uses descriptive activity names to name the activities in the data set (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
-⋅⋅4. It appropriately labels the data set with descriptive variable names.
-⋅⋅5. It exports the tidy dataset to the following file: "\project_final\data\tidydata.txt"
+* It merges the training and the test sets from samsung.zip to create one data set and adds activity labels and subjects identifiers to it.
+* It extracts only the measurements on the mean and standard deviation for each measurement.
+* It uses descriptive activity names to name the activities in the data set (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+* It appropriately labels the data set with descriptive variable names.
+* It exports the tidy dataset to the following file: "\project_final\data\tidydata.txt"
 
