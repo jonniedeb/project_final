@@ -1,6 +1,6 @@
 # Human Activity Recognition Using Smartphones - Adapted dataset - Code Book
 
-This dataset is an adaptation of another dataset called "Smartphone-Based Recognition of Human Activities and Postural Transitions Data Set" about which you will find information on: https://archive.ics.uci.edu/ml/datasets/Smartphone-Based+Recognition+of+Human+Activities+and+Postural+Transitions
+This dataset is an adaptation of another dataset called "Smartphone-Based Recognition of Human Activities and Postural Transitions Data Set" about which you will find information on [this site](https://archive.ics.uci.edu/ml/datasets/Smartphone-Based+Recognition+of+Human+Activities+and+Postural+Transitions)
 
 This adapted dataset was created using the run_analysis.R script you will find in this repository, as part of an assignement within the Johns Hopkins University Data Science Specialization. More detailed information in the README.md file.
 
