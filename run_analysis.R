@@ -1,13 +1,9 @@
-#Create data folder
+#Create a data directory
 if(!file.exists("data")){dir.create("data")}
 
-#Getting the data
-    #Download compressed data file
-    url<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-    download.file(url,destfile="data/samsung.zip")
+#Unzipping the data file present in the working directory
     
-    #Unzip all files in data folder
-    unzip("data/samsung.zip",exdir= "data",junkpaths = TRUE)
+    unzip("samsung.zip",exdir= "data",junkpaths = TRUE)
 
 
 #Import data to tables, combine and merge them
@@ -22,9 +18,9 @@ if(!file.exists("data")){dir.create("data")}
     #subjects
     subject_train<-fread("data/subject_train.txt")
     subject_test<-fread("data/subject_test.txt")
-        #combined
+        #combine train and test sets
         subject<-rbind(subject_train, subject_test)
-        #remove old
+        #remove old variables from global environment
         rm(subject_train,subject_test)
     
     #sets (x) and labels (y)
@@ -35,13 +31,13 @@ if(!file.exists("data")){dir.create("data")}
         #combine train and test sets
         x<-rbind(x_train, x_test)
         y<-rbind(y_train, y_test)
-        #give names to columns
+        #give names to variables
         names(y)<-"activity"
         names(x)<-features$V2
         names(subject)<-"subject"
-        #Merge all data into a tidy datasett
+        #Merge all data into a single dataset
         data<-cbind(subject,y,x)
-        #remove old
+        #remove old variables from the global environment
         rm(x_train, y_train, x_test, y_test,x, y)
 
 #Extracts only the measurements on the mean and standard deviation for each 
@@ -55,14 +51,10 @@ if(!file.exists("data")){dir.create("data")}
     library(dplyr)
     data<-select(data, one_of(WantedVar))
     
-#Uses descriptive activity names to name the activities in the data set
+#Use descriptive activity names to name the activities in the data set
     map = setNames(activity_labels$V2,activity_labels$V1)
     data$activity[] <- map[data$activity]
 
-#Appropriately labels the data set with descriptive variable names.
-    
-    #it's already done;)
-    
 #From the data set in step 4, create a second, independent tidy data set with 
 #the average of each variable for each activity and each subject
    
@@ -73,7 +65,7 @@ if(!file.exists("data")){dir.create("data")}
     data2<-data2 %>% group_by(activity, subject) %>% summarise_each(funs(mean))
    
   
-#Export to text file
+#Export the tidy dataset to a text file
 write.table(x = data2,file = "data/tidydata.txt",sep = ",",na = "NA", row.names = F, fileEncoding = "utf-8")    
     
     
