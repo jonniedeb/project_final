@@ -37,8 +37,9 @@ How to create the adapted dataset ?
 4. To create the adapted dataset:
    * Start R or a R GUI like RStudio
    * Set "project_final" as your working directory
+        * Example: `setwd("~/project_final")`
    * If you don't have it, install the "data.table" package with the following command: `install.packages("data.table")`
-   * Source the "run_analysis.R" script with the source command
+   * Source the "run_analysis.R" script with the source command: `source("run_analysis.R")`
 5. You can know retrieve the adapted dataset in: "\project_final\data\tidydata.txt"
 
 Which steps does the original dataset undergo to become tidy ?
