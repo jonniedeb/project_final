@@ -8,6 +8,7 @@ if(!file.exists("data")){dir.create("data")}
 
 #Import data to tables, combine and merge them
     
+    #loading data.table package
     library(data.table)
     #class labels and activity names
     activity_labels<-fread("data/activity_labels.txt")
